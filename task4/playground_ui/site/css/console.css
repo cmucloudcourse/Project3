@@ -1,0 +1,56 @@
+.cm-s-console {
+	background: #0e1627;
+	color: #f4ffff;
+}
+.cm-s-console .CodeMirror-lines {
+	padding: 8px 0;
+}
+
+.cm-s-console div.CodeMirror-cursor {
+	border-left: 3px solid #F8F8F2;
+}
+.cm-s-console .CodeMirror-activeline-background {
+	background: #777797;
+}
+.cm-s-console .CodeMirror-selected {
+	background: #777797;
+}
+.cm-s-console .cm-comment {
+	color: #75715E;
+}
+.cm-s-console .cm-string {
+	color: #E6DB74;
+}
+.cm-s-console .cm-number {
+	color: #66D9EF;
+}
+.cm-s-console .cm-atom {
+	color: #66D9EF;
+}
+.cm-s-console .cm-keyword {
+	color: #F92672;
+}
+.cm-s-console .cm-variable {
+	color: #A6E22E;
+}
+.cm-s-console .cm-def {
+	font-style: italic;
+	color: #FD971F;
+}
+.cm-s-console .cm-variable-2 {
+	color: #F92672;
+}
+.cm-s-console .cm-property {
+	color: #66D9EF;
+}
+.cm-s-console .cm-operator {
+	color: #F92672;
+}
+.cm-s-console .CodeMirror-linenumber {
+	color: #75715E;
+}
+
+
+.cm-s-console .cm-error {
+	color: #fc1368;
+}

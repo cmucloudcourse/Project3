@@ -1,0 +1,184 @@
+body {
+    width: 100vw ;
+    height: 100vh;
+    overflow:hidden;
+}
+
+.navbar-brand {
+    padding: 5px 15px;
+}
+
+#records_filter {
+    float: left;
+    padding-top: .25em;
+}
+
+#brand-image {
+    height: 100%
+}
+
+div#content {
+    width: 100%;
+    height:100%;
+    padding-top: 50px;
+}
+
+div#source-pane {
+    float: left;
+    width: 50%;
+    height: 100%;
+
+    overflow: hidden;
+    position: relative;
+}
+
+div#output-pane {
+    float: right;
+    width: 50%;
+    background: #0e1627;
+    height: 100%;
+    overflow-y: scroll;
+
+    position: relative;
+}
+
+div#submit-container {
+    float: right;
+}
+
+div#button-row {
+    margin-top: 20px;
+}
+
+.CodeMirror {
+    height: 100%;
+    padding-top:53.5px;
+}
+
+div#output-container{
+    padding: 10px 20px;
+}
+
+
+#source{
+    height: 100%;
+}
+
+#output {
+    /*color: white;*/
+    font-family: monospace;
+    width: 100%;
+    height: 50vh;
+}
+
+.ctr_btn_container{
+    text-align: center;
+    padding: 10px 0;
+    position: absolute;
+    z-index: 1000;
+    width: 100%;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#clear_btn{
+    text-align: center;
+    padding: 5px 15px;
+    width: auto;
+    border: solid 1px #767878;
+    background: #0e1627;
+    color: #767878;
+    display: inline-block;
+}
+
+#clear_btn:hover{
+    background: #f5f5f5;
+    border: solid 1px #ededed;
+    color: #78797b;
+}
+
+#run_btn{
+    text-align: center;
+    padding: 5px 15px;
+    width: auto;
+    background: #f5f5f5;
+    border: solid 1px #ededed;
+    color: #78797b;
+    display: flex;
+    margin-right: 20px;
+}
+
+#run_btn:hover{
+    border: solid 1px #767878;
+    color: #4e4f50;
+}
+
+button:focus{
+  outline:none;
+}
+
+/* Code Execution Spinner */
+.loader {
+    z-index: 1000;
+    border: 4px solid #2b2d2e;
+    border-top: 4px solid #04b4f5;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 2s linear infinite;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display:none;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+
+/* Theme Dropdown Styling */
+.dropbtn {
+    background-color: #04b4f5;
+    color: white;
+    padding: 7.5px 0;
+    font-size: 12px;
+    border: none;
+    cursor: pointer;
+    text-align:center;
+    width:80px;
+    display: inline-block;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    width:80px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-size:12px;
+}
+
+.dropdown-content a:hover {
+    filter: brightness(150%);
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}

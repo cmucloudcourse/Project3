@@ -1,0 +1,79 @@
+---
+# In Kubernetes a deployment is used to manange pods.
+# For this task, you should have one deployment for the backend code execution
+# API so the number of replications can be increased / decreased independently.
+#
+#
+# https://v1-8.docs.kubernetes.io/docs/concepts/workloads/controllers/deployment/
+kind: Deployment
+apiVersion: extensions/v1beta1
+metadata:
+  name:
+  labels:
+    app:
+# You should complete this spec field based on the deployment spec defined in:
+# https://v1-8.docs.kubernetes.io/docs/concepts/workloads/controllers/deployment/
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app:
+  template:
+    metadata:
+      labels:
+        app: 
+      namespace: 
+    spec:
+      containers:
+        - name: 
+          image: 
+          ports:
+          - containerPort:
+          resources:
+            requests:
+              cpu:
+--
+# A service is an abstraction that enables traffic to be routed from the network to a
+# specific pod. This service should double as a Load Balancer.
+# https://kubernetes.io/docs/concepts/services-networking/service/
+#
+#
+# You should create a service for each deployment you have created above.
+# https://v1-8.docs.kubernetes.io/docs/concepts/services-networking/service/#type-loadbalancer
+apiVersion: v1
+kind: Service
+metadata:
+  name:
+  labels:
+    app:
+# Complete the service spec based on the documentation provided in:
+# https://v1-8.docs.kubernetes.io/docs/api-reference/v1.8/#service-v1-core
+spec:
+  selector: 
+    app: 
+  ports:
+  - port: 
+    targetPort: 
+  type:
+---
+# For this task you will need to define autoscaling rules pers the write up
+# to ensure that the backend pod does not exceed a certain cpu utilization.
+#
+# https://v1-8.docs.kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/
+apiVersion: autoscaling/v2beta1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: 
+  namespace: default
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1beta1
+    kind: 
+    name: 
+  minReplicas: 
+  maxReplicas: 
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      targetAverageUtilization:

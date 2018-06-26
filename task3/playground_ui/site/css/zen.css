@@ -1,0 +1,68 @@
+.cm-s-zen {
+	font-size: 1em;
+	line-height: 1.5em;
+	font-family: inconsolata, monospace;
+	letter-spacing: 0.3px;
+	word-spacing: 1px;
+	background: #404040;
+	color: #DEDEDE;
+}
+
+.cm-s-zen-loader{
+	border-color: #404040 !important;
+	border-top-color: #FFCC66 !important;
+}
+
+.cm-s-zen-sample{
+	background: #404040;
+	color:#709070 !important;
+}
+
+.cm-s-zen .CodeMirror-lines {
+	padding: 8px 0;
+}
+.cm-s-zen .CodeMirror-gutters {
+	box-shadow: 1px 0 2px 0 rgba(0, 0, 0, 0.5);
+	-webkit-box-shadow: 1px 0 2px 0 rgba(0, 0, 0, 0.5);
+	background-color: #404040;
+	padding-right: 10px;
+	z-index: 3;
+	border: none;
+}
+.cm-s-zen div.CodeMirror-cursor {
+	border-left: 3px solid #DEDEDE;
+}
+.cm-s-zen .CodeMirror-activeline-background {
+	background: #A0804026;
+}
+.cm-s-zen .CodeMirror-selected {
+	background: #A0A0C0;
+}
+.cm-s-zen .cm-comment {
+	font-style: italic;
+	color: #709070;
+}
+.cm-s-zen .cm-string {
+	color: #FF2020;
+}
+.cm-s-zen .cm-number {
+	color: null;
+}
+.cm-s-zen .cm-keyword {
+	color: #FFFFA0;
+}
+.cm-s-zen .cm-variable {
+	color: #FFCC66;
+}
+.cm-s-zen .cm-property {
+	color: null;
+}
+.cm-s-zen .cm-atom {
+	color: null;
+}
+.cm-s-zen .cm-operator {
+	color: #FFFFA0;
+}
+.cm-s-zen .CodeMirror-linenumber {
+	color: italic;
+}

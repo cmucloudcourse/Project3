@@ -1,0 +1,68 @@
+.cm-s-fruit {
+	font-size: 1em;
+	line-height: 1.5em;
+	font-family: inconsolata, monospace;
+	letter-spacing: 0.3px;
+	word-spacing: 1px;
+	background: #fdfdfd;
+	color: #181818;
+}
+
+.cm-s-fruit-sample{
+	background: #fdfdfd;
+	color: #22a21f !important;
+}
+
+.cm-s-fruit-loader{
+	border-color: #fdfdfd !important;
+	border-top-color: #22a21f !important;
+}
+
+.cm-s-fruit .CodeMirror-lines {
+	padding: 8px 0;
+}
+.cm-s-fruit .CodeMirror-gutters {
+	box-shadow: 1px 0 2px 0 rgba(0, 0, 0, 0.5);
+	-webkit-box-shadow: 1px 0 2px 0 rgba(0, 0, 0, 0.5);
+	background-color: #fdfdfd;
+	padding-right: 10px;
+	z-index: 3;
+	border: none;
+}
+.cm-s-fruit div.CodeMirror-cursor {
+	border-left: 3px solid #181818;
+}
+.cm-s-fruit .CodeMirror-activeline-background {
+	background: #FFFFFF0D;
+}
+.cm-s-fruit .CodeMirror-selected {
+	background: #b7dce8;
+}
+.cm-s-fruit .cm-comment {
+	color: #22a21f;
+	background: #dbf3cd;
+}
+.cm-s-fruit .cm-keyword {
+	color: #fb6620;
+}
+.cm-s-fruit .cm-string {
+	color: #1586d2;
+}
+.cm-s-fruit .cm-variable-2 {
+	color: #F92672;
+}
+.cm-s-fruit .cm-property {
+	color: null;
+}
+.cm-s-fruit .cm-atom {
+	color: null;
+}
+.cm-s-fruit .cm-number {
+	color: null;
+}
+.cm-s-fruit .cm-operator {
+	color: #fb6620;
+}
+.cm-s-fruit .CodeMirror-linenumber {
+	color: #22a21f;
+}
