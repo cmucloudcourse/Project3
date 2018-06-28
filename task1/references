@@ -12,7 +12,44 @@
       "url":"https://mediatemple.net/community/products/developer/204405534/install-nginx-on-ubuntu",
       "code":"used in creating install nginx in docker file",
       "description":"Info about nginx"
+    },
+    {
+      "title":"using python subprocess call to invoke python script",
+      "url":"https://stackoverflow.com/questions/7152340/using-python-subprocess-call-to-invoke-python-script",
+      "code":"used in executing the python process call",
+      "description":"Info about subprocess call in python"
+    },
+    {
+      "title":"17.5. subprocess — Subprocess management¶",
+      "url":"https://docs.python.org/3/library/subprocess.html",
+      "code":"used in executing the python process call",
+      "description":"Info about subprocess call in python"
+    },
+    {
+      "title":"Welcome | Flask (A Python Microframework)",
+      "url":"http://flask.pocoo.org/",
+      "code":"used in creating the rest services for responding to post requests",
+      "description":"Info about Flask microframework"
+    },
+    {
+      "title":"Flask Megatutorial",
+      "url":"https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world",
+      "code":"used in creating the rest services for responding to post requests",
+      "description":"Info about Flask microframework"
+    },
+    {
+      "title":"Docker ps -a command to publish only container names? - General Discussions - Docker Forums",
+      "url":"https://forums.docker.com/t/docker-ps-a-command-to-publish-only-container-names/8483",
+      "code":"deleting existing containers",
+      "description":"deleting all the existing containers"
+    },
+    {
+      "title":"SUBPROCESS MODULE",
+      "url":"http://www.bogotobogo.com/python/python_subprocess_module.php",
+      "code":"used in executing the python process call",
+      "description":"Info about subprocess call in python"
     }
+
   ],
   "collaborators":[
     {

@@ -8,27 +8,27 @@
 kind: Deployment
 apiVersion: extensions/v1beta1
 metadata:
-  name:
+  name: playground-deployment
   labels:
-    app:
+    app: playground-task2
 # You should complete this spec field based on the deployment spec defined in:
 # https://v1-8.docs.kubernetes.io/docs/concepts/workloads/controllers/deployment/
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app:
+      app: playground-task2
   template:
     metadata:
       labels:
-        app: 
-      namespace: 
+        app: playground-task2
+      namespace: playground-task2
     spec:
       containers:
-        - name: 
-          image: 
+        - name: playground-task2
+          image: "gcr.io/docker-208408/cmucourse/task2:v0.3"
           ports:
-          - containerPort:
+          - containerPort: 6000
 ---
 # A service is an abstraction that enables traffic to be routed from the network to a
 # specific pod. This service should double as a Load Balancer.
@@ -38,15 +38,15 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name:
+  name: playground-task2
   labels:
-    app:
+    app: playground-task2
 # Complete the service spec based on the documentation provided in:
 # https://v1-8.docs.kubernetes.io/docs/api-reference/v1.8/#service-v1-core
 spec:
   selector: 
-    app: 
+    app: playground-task2
   ports:
-  - port: 
-    targetPort: 
-  type:
+  - port: 80
+    targetPort: 6000
+  type: LoadBalancer
