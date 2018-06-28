@@ -1,7 +1,7 @@
 from flask import Flask, request
 import requests,json
 
-pythonServiceHostName = "http://playground-task3-service.task3.svc.cluster.local:6000";
+pythonServiceHostName = "http://playground-task3-service.task3:6000";
 
 app = Flask(__name__, static_folder='site', static_url_path='')
 

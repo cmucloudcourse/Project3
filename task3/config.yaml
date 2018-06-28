@@ -77,8 +77,8 @@ spec:
   selector: 
     app: playground-task3-server
   ports:
-  - port: 6000
-    targetPort: 80
+  - port: 80
+    targetPort: 6000
   type: LoadBalancer
 ---
 apiVersion: v1
@@ -91,6 +91,6 @@ spec:
   selector: 
     app: playground-task3-ui
   ports:
-  - port: 5000
-    targetPort: 80
+  - port: 80
+    targetPort: 5000
   type: LoadBalancer
