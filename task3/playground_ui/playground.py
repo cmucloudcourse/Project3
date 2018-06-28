@@ -1,4 +1,5 @@
 from flask import Flask, request
+import requests,json
 
 pythonServiceHostName = "http://<ip>";
 
@@ -12,14 +13,19 @@ def handle():
 def handlePython():
     if request.method == 'POST':
         code = request.form['code']
-        print(code)
+        payload = {}
+        payload['code']= code
+        r = requests.post("http://localhost:6000/py/eval", json.dumps(payload))
+        # print r.text
+        print "This is the result json"
+        print r.json()
         # This should return the stdout and stderr in json format
         # return the exact response fom pyService.py only!
         # Your code should handle 'code' as an argument in both
         # request.form and request.json
         ### BEGIN STUDENT CODE ###
         ### END STUDENT CODE ###
-        return ''
+        return r.text
     else:
         return app.send_static_file("python.html")
 
