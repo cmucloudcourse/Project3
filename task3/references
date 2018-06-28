@@ -48,6 +48,12 @@
       "url":"http://www.bogotobogo.com/python/python_subprocess_module.php",
       "code":"used in executing the python process call",
       "description":"Info about subprocess call in python"
+    },
+    {
+      "title":"DNS for Services and Pods",
+      "url":"https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/",
+      "code":"Used in calling backend server from ui server",
+      "description":"Info about dns names in pods"
     }
 
   ],
