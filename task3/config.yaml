@@ -27,6 +27,7 @@ spec:
       containers:
         - name: playground-task3-server
           image: "gcr.io/docker-208408/cmucourse/task2:v0.3"
+          imagePullPolicy: Always
           ports:
           - containerPort: 6000
 ---
@@ -55,6 +56,7 @@ spec:
       containers:
         - name: playground-task3-ui
           image: "gcr.io/docker-208408/cmucourse/task3ui:v1.0"
+          imagePullPolicy: Always
           ports:
           - containerPort: 5000
 ---
