@@ -1,8 +1,7 @@
 from flask import Flask, request
 import requests,json
 
-pythonServiceHostName = "http://playground-task3-service:80";
-
+flag = True
 app = Flask(__name__, static_folder='site', static_url_path='')
 
 @app.route("/", methods=['GET'])
@@ -37,6 +36,15 @@ def handlePython():
         return app.send_static_file("python.html")
 
 def fwdreq(command):
+    global  flag
+    if flag:
+        pythonServiceHostName = "http://playground-task3-service:80"
+        print "sending request to GCP "+pythonServiceHostName;
+        flag = False
+    else :
+        pythonServiceHostName = "http://azure-task3-service:80"
+        print "Sending request to azure "
+        flag = True
     r = requests.post(pythonServiceHostName+"/py/eval", command)
     # print r.text
     print "Results ::::: This is the result json"
