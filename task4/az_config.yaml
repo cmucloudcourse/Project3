@@ -29,6 +29,9 @@ spec:
           image: "cmucourse.azurecr.io/cmucourse/task2:v0.3"
           ports:
           - containerPort: 6000
+      imagePullSecrets:
+        - name: azregcred
+
 ---
 # A service is an abstraction that enables traffic to be routed from the network to a
 # specific pod. This service should double as a Load Balancer.
