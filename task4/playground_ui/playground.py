@@ -42,7 +42,7 @@ def fwdreq(command):
         print "sending request to GCP "+pythonServiceHostName;
         flag = False
     else :
-        pythonServiceHostName = "http://azure-task3-service:80"
+        pythonServiceHostName = "http://40.114.31.97:80"
         print "Sending request to azure "
         flag = True
     r = requests.post(pythonServiceHostName+"/py/eval", command)
