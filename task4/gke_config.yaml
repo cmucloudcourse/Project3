@@ -70,9 +70,9 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: playground-task4-service
+  name: playground-task3-service
   labels:
-    app: playground-task4-service
+    app: playground-task3-service
 # Complete the service spec based on the documentation provided in:
 # https://v1-8.docs.kubernetes.io/docs/api-reference/v1.8/#service-v1-core
 spec:
