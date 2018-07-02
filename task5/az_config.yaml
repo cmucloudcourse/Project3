@@ -29,6 +29,9 @@ spec:
           image: "cmucourse.azurecr.io/cmucourse/task2:v0.3"
           ports:
           - containerPort: 6000
+          resources:
+            requests:
+              cpu: "0.5"
       imagePullSecrets:
         - name: azregcred
 
@@ -63,13 +66,13 @@ spec:
 apiVersion: autoscaling/v2beta1
 kind: HorizontalPodAutoscaler
 metadata:
-  name: azbackendhpa
+  name: playground-deployment
   namespace: default
 spec:
   scaleTargetRef:
     apiVersion: apps/v1beta1
     kind: Deployment
-    name: azbackendhpa
+    name: playground-deployment
   minReplicas: 1
   maxReplicas: 2
   metrics:

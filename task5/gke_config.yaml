@@ -30,6 +30,9 @@ spec:
           imagePullPolicy: Always
           ports:
           - containerPort: 6000
+          resources:
+            requests:
+              cpu: "0.5"
 ---
 # For this task, you should have one deployment for the frontend code execution UI
 # so the number of replications can be increased / decreased independently.
@@ -59,6 +62,9 @@ spec:
           imagePullPolicy: Always
           ports:
           - containerPort: 5000
+          resources:
+            requests:
+              cpu: "0.5"
 ---
 # A service is an abstraction that enables traffic to be routed from the network to a
 # specific pod. This service should double as a Load Balancer.
@@ -109,7 +115,7 @@ spec:
   scaleTargetRef:
     apiVersion: apps/v1beta1
     kind: Deployment
-    name: gcpbackendhpa
+    name: playground-task4-server
   minReplicas: 1
   maxReplicas: 2
   metrics:
@@ -130,7 +136,7 @@ spec:
   scaleTargetRef:
     apiVersion: apps/v1beta1
     kind: Deployment
-    name: gcpfrontendhp
+    name: playground-task4-ui
   minReplicas: 1
   maxReplicas: 2
   metrics:
