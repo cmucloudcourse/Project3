@@ -32,7 +32,7 @@ spec:
           - containerPort: 6000
           resources:
             requests:
-              cpu: "0.5"
+              cpu: "0.1"
 ---
 # For this task, you should have one deployment for the frontend code execution UI
 # so the number of replications can be increased / decreased independently.
@@ -45,6 +45,8 @@ metadata:
   name: playground-task4-ui
   labels:
     app: playground-task4-ui
+# You should complete this spec field based on the deployment spec defined in:
+# https://v1-8.docs.kubernetes.io/docs/concepts/workloads/controllers/deployment/
 spec:
   replicas: 1
   selector:
@@ -64,7 +66,7 @@ spec:
           - containerPort: 5000
           resources:
             requests:
-              cpu: "0.5"
+              cpu: "0.1"
 ---
 # A service is an abstraction that enables traffic to be routed from the network to a
 # specific pod. This service should double as a Load Balancer.
@@ -80,15 +82,29 @@ metadata:
   labels:
     app: playground-task3-service
 # Complete the service spec based on the documentation provided in:
-# https://v1-8.docs.kubernetes.io/docs/api-reference/v1.8/#service-v1-core
+#    https://v1-8.docs.kubernetes.io/docs/api-reference/v1.8/#service-v1-core
 spec:
-  selector:
+  selector: 
     app: playground-task4-server
   ports:
   - port: 80
     targetPort: 6000
   type: LoadBalancer
-
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: playground-task4-ui-service
+  labels:
+    app: playground-task4-ui-service
+spec:
+  selector: 
+    app: playground-task4-ui
+  ports:
+  - port: 80
+    targetPort: 5000
+  type: LoadBalancer
+---
 # For this task you will need to define autoscaling rules pers the write up
 # to ensure that the backend pod does not exceed a certain cpu utilization.
 #
@@ -110,21 +126,6 @@ spec:
     resource:
       name: cpu
       targetAverageUtilization: 60
----
-
-apiVersion: v1
-kind: Service
-metadata:
-  name: playground-task4-ui-service
-  labels:
-    app: playground-task4-ui-service
-spec:
-  selector:
-    app: playground-task4-ui
-  ports:
-  - port: 80
-    targetPort: 5000
-  type: LoadBalancer
 # For this task you will need to define autoscaling rules pers the write up
 # to ensure that the frontend pod does not exceed a certain cpu utilization.
 #
