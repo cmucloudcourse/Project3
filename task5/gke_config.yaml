@@ -55,7 +55,7 @@ spec:
     spec:
       containers:
         - name: playground-task4-ui
-          image: "gcr.io/docker-208408/cmucourse/task4ui:v0.1"
+          image: "gcr.io/docker-208408/cmucourse/task5ui:v0.1"
           imagePullPolicy: Always
           ports:
           - containerPort: 5000
@@ -103,13 +103,13 @@ spec:
 apiVersion: autoscaling/v2beta1
 kind: HorizontalPodAutoscaler
 metadata:
-  name: backendHPA
-  namespace: task4
+  name: gcpbackendhpa
+  namespace: default
 spec:
   scaleTargetRef:
     apiVersion: apps/v1beta1
     kind: Deployment
-    name: backendHPA
+    name: gcpbackendhpa
   minReplicas: 1
   maxReplicas: 2
   metrics:
@@ -124,13 +124,13 @@ spec:
 apiVersion: autoscaling/v2beta1
 kind: HorizontalPodAutoscaler
 metadata:
-  name: frontendHPA
-  namespace: task4
+  name: gcpfrontendhp
+  namespace: default
 spec:
   scaleTargetRef:
     apiVersion: apps/v1beta1
     kind: Deployment
-    name: frontendHPA
+    name: gcpfrontendhp
   minReplicas: 1
   maxReplicas: 2
   metrics:

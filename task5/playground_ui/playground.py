@@ -56,7 +56,7 @@ def fwdreq(command):
             counter_gcp += 1
         return r.text
     elif counter_azure <10:
-        pythonServiceHostName = "http://40.114.31.97:80"
+        pythonServiceHostName = "http://13.68.135.136:80"
         print "Sending request to azure "
         flag = True
         r = requests.post(pythonServiceHostName + "/py/eval", command)
