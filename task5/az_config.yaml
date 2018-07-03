@@ -8,31 +8,34 @@
 kind: Deployment
 apiVersion: extensions/v1beta1
 metadata:
-  name:
+  name: playground-deployment
   labels:
-    app:
+    app: playground-task4
 # You should complete this spec field based on the deployment spec defined in:
 # https://v1-8.docs.kubernetes.io/docs/concepts/workloads/controllers/deployment/
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app:
+      app: playground-task4
   template:
     metadata:
       labels:
-        app: 
-      namespace: 
+        app: playground-task4
+      namespace: playground-task4
     spec:
       containers:
-        - name: 
-          image: 
+        - name: playground-task4
+          image: "cmucourse.azurecr.io/cmucourse/task2:v0.3"
           ports:
-          - containerPort:
+          - containerPort: 6000
           resources:
             requests:
-              cpu:
---
+              cpu: "0.5"
+      imagePullSecrets:
+        - name: azregcred
+
+---
 # A service is an abstraction that enables traffic to be routed from the network to a
 # specific pod. This service should double as a Load Balancer.
 # https://kubernetes.io/docs/concepts/services-networking/service/
@@ -43,18 +46,18 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name:
+  name: playground-task4
   labels:
-    app:
+    app: playground-task4
 # Complete the service spec based on the documentation provided in:
 # https://v1-8.docs.kubernetes.io/docs/api-reference/v1.8/#service-v1-core
 spec:
-  selector: 
-    app: 
+  selector:
+    app: playground-task4
   ports:
-  - port: 
-    targetPort: 
-  type:
+  - port: 80
+    targetPort: 6000
+  type: LoadBalancer
 ---
 # For this task you will need to define autoscaling rules pers the write up
 # to ensure that the backend pod does not exceed a certain cpu utilization.
@@ -63,17 +66,17 @@ spec:
 apiVersion: autoscaling/v2beta1
 kind: HorizontalPodAutoscaler
 metadata:
-  name: 
+  name: playground-deployment
   namespace: default
 spec:
   scaleTargetRef:
     apiVersion: apps/v1beta1
-    kind: 
-    name: 
-  minReplicas: 
-  maxReplicas: 
+    kind: Deployment
+    name: playground-deployment
+  minReplicas: 1
+  maxReplicas: 2
   metrics:
   - type: Resource
     resource:
       name: cpu
-      targetAverageUtilization:
+      targetAverageUtilization: 60

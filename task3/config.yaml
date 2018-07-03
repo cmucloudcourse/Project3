@@ -8,27 +8,28 @@
 kind: Deployment
 apiVersion: extensions/v1beta1
 metadata:
-  name:
+  name: playground-task3-server
   labels:
-    app:
+    app: playground-task3-server
 # You should complete this spec field based on the deployment spec defined in:
 # https://v1-8.docs.kubernetes.io/docs/concepts/workloads/controllers/deployment/
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app:
+      app: playground-task3-server
   template:
     metadata:
       labels:
-        app: 
-      namespace: 
+        app: playground-task3-server
+      namespace: task3
     spec:
       containers:
-        - name: 
-          image: 
+        - name: playground-task3-server
+          image: "gcr.io/docker-208408/cmucourse/task2:v0.3"
+          imagePullPolicy: Always
           ports:
-          - containerPort:
+          - containerPort: 6000
 ---
 # For this task, you should have one deployment for the frontend code execution UI
 # so the number of replications can be increased / decreased independently.
@@ -38,25 +39,26 @@ spec:
 kind: Deployment
 apiVersion: extensions/v1beta1
 metadata:
-  name:
+  name: playground-task3-ui
   labels:
-    app:
+    app: playground-task3-ui
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app:
+      app: playground-task3-ui
   template:
     metadata:
       labels:
-        app: 
-      namespace: 
+        app: playground-task3-ui
+      namespace: task3
     spec:
       containers:
-        - name: 
-          image: 
+        - name: playground-task3-ui
+          image: "gcr.io/docker-208408/cmucourse/task3ui:v1.0"
+          imagePullPolicy: Always
           ports:
-          - containerPort:
+          - containerPort: 5000
 ---
 # A service is an abstraction that enables traffic to be routed from the network to a
 # specific pod. This service should double as a Load Balancer.
@@ -68,29 +70,29 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name:
+  name: playground-task3-service
   labels:
-    app:
+    app: playground-task3-service
 # Complete the service spec based on the documentation provided in:
 # https://v1-8.docs.kubernetes.io/docs/api-reference/v1.8/#service-v1-core
 spec:
   selector: 
-    app: 
+    app: playground-task3-server
   ports:
-  - port: 
-    targetPort: 
-  type:
+  - port: 80
+    targetPort: 6000
+  type: LoadBalancer
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name:
+  name: playground-task3-ui-service
   labels:
-    app:
+    app: playground-task3-ui-service
 spec:
   selector: 
-    app: 
+    app: playground-task3-ui
   ports:
-  - port: 
-    targetPort: 
-  type:
+  - port: 80
+    targetPort: 5000
+  type: LoadBalancer
